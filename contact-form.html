@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us — Malaysia Ultimate</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;500;600&display=swap"
+    rel="stylesheet" />
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      /* Malaysian flag colors + vibrant accents */
+      --color-primary: #0066cc;
+      /* Deep blue */
+      --color-accent: #ffd700;
+      /* Golden yellow */
+      --color-secondary: #ff3333;
+      /* Red accent */
+      --color-success: #22a854;
+      /* Green */
+      --color-text-primary: #1a1a1a;
+      --color-text-secondary: #555;
+      --color-text-tertiary: #999;
+      --color-bg: #ffffff;
+      --color-bg-secondary: #f7f7f5;
+      --color-border: #e4e4e0;
+      --color-border-strong: #ccc;
+      --font-serif: 'Libre Baskerville', Georgia, serif;
+      --font-sans: 'Source Sans 3', system-ui, sans-serif;
+      --radius-sm: 6px;
+      --radius-md: 8px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--color-text-primary);
+      background: var(--color-bg);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* ── Nav ── */
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.1rem 2rem;
+      border-bottom: 1px solid var(--color-border);
+      position: sticky;
+      top: 0;
+      background: var(--color-bg);
+      z-index: 100;
+    }
+
+    .brand-name {
+      font-family: var(--font-serif);
+      font-size: 17px;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .brand-url {
+      font-size: 11px;
+      color: var(--color-text-tertiary);
+      letter-spacing: 0.5px;
+      margin-top: 1px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      font-size: 14px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--color-text-secondary);
+      transition: color 0.15s;
+    }
+
+    .nav-links a:hover {
+      color: var(--color-primary);
+    }
+
+    .nav-back {
+      font-size: 13px;
+      padding: 7px 18px;
+      border: 1px solid var(--color-border-strong);
+      border-radius: var(--radius-md);
+      color: var(--color-text-primary);
+      background: transparent;
+      cursor: pointer;
+      font-family: var(--font-sans);
+      transition: all 0.15s;
+    }
+
+    .nav-back:hover {
+      background: var(--color-primary);
+      color: white;
+      border-color: var(--color-primary);
+    }
+
+    /* ── Hero ── */
+    .hero {
+      padding: 3.5rem 2rem 3rem;
+      border-bottom: 3px solid var(--color-primary);
+      max-width: 680px;
+    }
+
+    .hero-label {
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--color-primary);
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: 38px;
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 1rem;
+      color: var(--color-text-primary);
+    }
+
+    .hero p {
+      font-size: 16px;
+      color: var(--color-text-secondary);
+      margin-bottom: 0;
+      max-width: 480px;
+      line-height: 1.7;
+    }
+
+    /* ── Contact Form Section ── */
+    .contact-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .info-card {
+      padding: 1.5rem;
+      border-radius: var(--radius-md);
+      border-left: 4px solid;
+      background: rgba(0, 102, 204, 0.03);
+    }
+
+    .info-card.primary {
+      border-left-color: var(--color-primary);
+    }
+
+    .info-card.accent {
+      border-left-color: var(--color-accent);
+    }
+
+    .info-card.success {
+      border-left-color: var(--color-success);
+    }
+
+    .info-card h4 {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--color-text-primary);
+    }
+
+    .info-card p {
+      font-size: 14px;
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .info-card a {
+      color: var(--color-primary);
+      font-weight: 500;
+      transition: opacity 0.15s;
+    }
+
+    .info-card a:hover {
+      opacity: 0.8;
+    }
+
+    /* ── Form Styles ── */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .form-group label {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--color-text-primary);
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      padding: 12px 14px;
+      border: 2px solid var(--color-border);
+      border-radius: var(--radius-md);
+      font-family: var(--font-sans);
+      font-size: 14px;
+      color: var(--color-text-primary);
+      transition: all 0.2s;
+      background: var(--color-bg);
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+      font-family: var(--font-sans);
+    }
+
+    .form-group select {
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%231a1a1a' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      padding-right: 36px;
+    }
+
+    /* ── Form Row ── */
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    /* ── Checkbox Group ── */
+    .checkbox-group {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .checkbox-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      cursor: pointer;
+    }
+
+    .checkbox-item input[type="checkbox"] {
+      margin-top: 3px;
+      cursor: pointer;
+      accent-color: var(--color-primary);
+      width: 18px;
+      height: 18px;
+    }
+
+    .checkbox-item label {
+      margin: 0;
+      font-size: 14px;
+      color: var(--color-text-secondary);
+      cursor: pointer;
+      font-weight: 400;
+    }
+
+    /* ── Button ── */
+    .btn-submit {
+      padding: 14px 28px;
+      background: linear-gradient(135deg, var(--color-primary) 0%, #0052a3 100%);
+      color: white;
+      border: none;
+      border-radius: var(--radius-md);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: var(--font-sans);
+      transition: all 0.2s;
+      box-shadow: 0 4px 12px rgba(0, 102, 204, 0.2);
+    }
+
+    .btn-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 102, 204, 0.3);
+    }
+
+    .btn-submit:active {
+      transform: translateY(0);
+    }
+
+    /* ── Success Message ── */
+    .success-message {
+      display: none;
+      padding: 1.5rem;
+      background: rgba(34, 168, 84, 0.1);
+      border: 2px solid var(--color-success);
+      border-radius: var(--radius-md);
+      color: var(--color-success);
+      text-align: center;
+      font-weight: 500;
+    }
+
+    .success-message.show {
+      display: block;
+      animation: slideIn 0.3s ease-out;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ── Accent decorations ── */
+    .accent-line {
+      height: 4px;
+      background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-accent) 50%, var(--color-secondary) 100%);
+      border-radius: 2px;
+      margin: 2rem 0;
+    }
+
+    /* ── Footer ── */
+    footer {
+      padding: 1.25rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      border-top: 1px solid var(--color-border);
+      margin-top: 3rem;
+    }
+
+    footer p {
+      font-size: 12px;
+      color: var(--color-text-tertiary);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-size: 12px;
+      color: var(--color-text-tertiary);
+      transition: color 0.15s;
+    }
+
+    .footer-links a:hover {
+      color: var(--color-primary);
+    }
+
+    /* ── Decorative elements ── */
+    .color-accent-circle {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.05;
+      pointer-events: none;
+    }
+
+    .circle-1 {
+      width: 200px;
+      height: 200px;
+      background: var(--color-primary);
+      top: -50px;
+      right: -50px;
+    }
+
+    .circle-2 {
+      width: 150px;
+      height: 150px;
+      background: var(--color-accent);
+      bottom: 50px;
+      left: -50px;
+    }
+
+    /* ── Mobile ── */
+    @media (max-width: 768px) {
+      .contact-section {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 1.5rem;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 2.5rem 1.25rem 2rem;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .nav {
+        padding: 1rem 1.25rem;
+      }
+
+      footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div>
+      <div class="brand-name">Malaysia Ultimate</div>
+      <div class="brand-url">malaysiaultimate.org</div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#news">News</a></li>
+    </ul>
+    <button class="nav-back" onclick="history.back()">← Back</button>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-label">Get in touch</div>
+    <h1>Contact us</h1>
+    <p>Have questions about tournaments, club registration, or anything Ultimate? We'd love to hear from you. Reach out using the form below or contact us directly.</p>
+  </section>
+
+  <div class="accent-line"></div>
+
+  <!-- Contact Section -->
+  <div class="contact-section">
+
+    <!-- Contact Info -->
+    <div class="contact-info">
+      <div class="info-card primary">
+        <h4>📧 Email</h4>
+        <p><a href="mailto:hello@malaysiaultimate.org">hello@malaysiaultimate.org</a></p>
+        <p style="font-size: 12px; margin-top: 0.5rem; color: var(--color-text-tertiary);">We typically respond within 24 hours</p>
+      </div>
+
+      <div class="info-card accent">
+        <h4>📱 WhatsApp</h4>
+        <p><a href="https://wa.me/60123456789">+60 12-345 6789</a></p>
+        <p style="font-size: 12px; margin-top: 0.5rem; color: var(--color-text-tertiary);">Chat with us on WhatsApp</p>
+      </div>
+
+      <div class="info-card success">
+        <h4>📍 Follow us</h4>
+        <p>
+          <a href="https://facebook.com/malaysiaultimate" target="_blank">Facebook</a> • 
+          <a href="https://instagram.com/malaysiaultimate" target="_blank">Instagram</a>
+        </p>
+        <p style="font-size: 12px; margin-top: 0.5rem; color: var(--color-text-tertiary);">Stay updated on tournaments & events</p>
+      </div>
+
+      <div style="padding: 1.5rem; background: linear-gradient(135deg, rgba(0, 102, 204, 0.05) 0%, rgba(255, 215, 0, 0.05) 100%); border-radius: var(--radius-md); border: 1px solid var(--color-border);">
+        <h4 style="color: var(--color-primary); margin-bottom: 0.75rem;">🏐 Quick tip</h4>
+        <p style="font-size: 13px; color: var(--color-text-secondary); margin: 0;">For tournament inquiries, you can also reach out to our events team directly at tournaments@malaysiaultimate.org</p>
+      </div>
+    </div>
+
+    <!-- Contact Form -->
+    <form class="contact-form" id="contactForm">
+      <div class="success-message" id="successMessage">
+        ✓ Thanks for reaching out! We'll get back to you soon.
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Full name *</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email address *</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="subject">Subject *</label>
+        <select id="subject" name="subject" required>
+          <option value="">Select a subject...</option>
+          <option value="tournament">Tournament inquiry</option>
+          <option value="club">Club registration</option>
+          <option value="team">National team</option>
+          <option value="partnership">Partnership opportunity</option>
+          <option value="rules">Rules &amp; gameplay</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Message *</label>
+        <textarea id="message" name="message" required placeholder="Tell us how we can help..."></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone number</label>
+        <input type="tel" id="phone" name="phone" placeholder="e.g., +60 12-345 6789" />
+      </div>
+
+      <div class="form-group">
+        <label>What's your interest? *</label>
+        <div class="checkbox-group">
+          <div class="checkbox-item">
+            <input type="checkbox" id="playing" name="interests" value="playing" />
+            <label for="playing">Playing Ultimate</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="coaching" name="interests" value="coaching" />
+            <label for="coaching">Coaching or organizing</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="sponsorship" name="interests" value="sponsorship" />
+            <label for="sponsorship">Sponsorship or partnership</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="media" name="interests" value="media" />
+            <label for="media">Media or press inquiry</label>
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" class="btn-submit">Send message</button>
+
+      <p style="font-size: 12px; color: var(--color-text-tertiary); text-align: center; margin-top: 1rem;">
+        We respect your privacy. We'll only use your information to respond to your inquiry.
+      </p>
+    </form>
+
+  </div>
+
+  <div class="accent-line"></div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 Malaysia Ultimate · malaysiaultimate.org · Affiliated with WFDF &amp; AOFDF</p>
+    <ul class="footer-links">
+      <li><a href="#">Privacy policy</a></li>
+      <li><a href="#">Terms of service</a></li>
+      <li><a href="https://facebook.com/malaysiaultimate" target="_blank">Facebook</a></li>
+      <li><a href="https://instagram.com/malaysiaultimate" target="_blank">Instagram</a></li>
+    </ul>
+  </footer>
+
+  <script>
+    // Form submission handler
+    document.getElementById('contactForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      // Collect form data
+      const formData = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        subject: document.getElementById('subject').value,
+        message: document.getElementById('message').value,
+        phone: document.getElementById('phone').value,
+        interests: Array.from(document.querySelectorAll('input[name="interests"]:checked'))
+          .map(el => el.value)
+      };
+
+      console.log('Form data:', formData);
+
+      // Show success message
+      const successMsg = document.getElementById('successMessage');
+      successMsg.classList.add('show');
+
+      // Reset form
+      this.reset();
+
+      // Hide success message after 5 seconds
+      setTimeout(() => {
+        successMsg.classList.remove('show');
+      }, 5000);
+
+      // In a real application, you'd send this data to a server here
+      // Example:
+      // fetch('/api/contact', {
+      //   method: 'POST',
+      //   headers: { 'Content-Type': 'application/json' },
+      //   body: JSON.stringify(formData)
+      // })
+    });
+  </script>
+
+</body>
+
+</html>
